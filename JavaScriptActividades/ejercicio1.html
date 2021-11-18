@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura de un número</title>
+</head>
+<body>
+    <script>
+        //la forma correcta seria seria if(isNaN(result)){
+            //no es un numero
+       // }else{ .........}
+        //Como sabes el let es "lets meter una variable" || result es una variable
+        let result = prompt("Pon un número:");
+
+        //comparamos el resultado con el infinito, no funciona cuando se compara con infinity
+        if(result <= Infinity){
+            alert("el número que has introducido es "+ result);
+        }else{
+            alert("No has introducido un número");
+        }
+    </script>
+</body>
+</html> 
