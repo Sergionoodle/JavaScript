@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibuja tabla</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: solid black 1px;
+            border-collapse: collapse;
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        td {
+            padding: 5px 10px;
+        }
+        
+        td::first-line {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function creacionTabla(filas = 10, columnas = 4, color = "black") {
+            for (var i = 0; i < filas; i++) {
+                document.write('<table>');
+                document.write("<tr>");
+
+
+                for (var j = 0; j < columnas; j++) {
+                    document.write('<td style="border: 2px solid ' + color + ';">' + "</td>")
+                }
+
+
+                document.write("</tr>");
+
+                document.write("</table>");
+            }
+        }
+
+        creacionTabla();
+        creacionTabla(20, 10, "pink");
+        for (var h = 0; h < 10; h++) {
+            creacionTabla(5, 4, "green");
+        }
+    </script>
+
+</body>
+
+</html>

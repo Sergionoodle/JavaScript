@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa peticiones array</title>
+</head>
+
+<body>
+    <script>
+        function map(array) {
+            const mapa = new Map()
+            let num
+
+            array.forEach(element => {
+                if (mapa.has(element)) {
+                    num = mapa.get(element) + 1
+                    mapa.set(element, num)
+                } else {
+                    mapa.set(element, 1)
+                }
+            });
+
+            return mapa
+        }
+
+        let contador = 0
+        let array = []
+        let size
+        let resultado
+
+        do {
+            txt = prompt("Introduce una palabra")
+            if (txt != "" && txt != null) {
+                array[contador] = txt
+                contador++
+            }
+
+        } while (txt != null && txt != "")
+
+        size = map(array).size;
+        resultado = map(array).entries();
+
+        for (let i = 0; i < size; i++) {
+            document.write("<p>" + resultado.next().value + "</p>")
+        }
+    </script>
+</body>
+
+</html>
