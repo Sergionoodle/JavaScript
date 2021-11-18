@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var nombre = prompt("Escribe tu nombre de usuario: ");
+
+        do {
+            alert("No has introducido el nombre de usuario correctamente");
+            var nombre = prompt("Escribe tu nombre de usuario: ");
+
+        } while (tiene_mayusculas == 0);
+
+        var contrasena = prompt("Escribe tu contraseña: ");
+
+        var letras_mayusculas = "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+
+        function tiene_mayusculas(nombre) {
+            for (i = 0; i < nombre.length; i++) {
+                if (letras_mayusculas.indexOf(nombre.charAt(i), 0) != -1) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+    </script>
+
+</body>
+
+</html>
