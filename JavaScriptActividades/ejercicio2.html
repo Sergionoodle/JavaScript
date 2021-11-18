@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de colores</title>
+    
+</head>
+<body id="body">
+    <script>
+        //asignamos una variable que cambie con parse int de string a int
+        var rojo = parseInt(Math.random() * 256);
+                            //Que pille un numero random y lo multiplique entre 256 (colores rgb)
+        var azul = parseInt(Math.random()*256);
+        var verde = parseInt(Math.random()* 256);
+
+        //hacemos que se escriba el total de rgb(xxx,xxx,xxx) u know ;)
+        color = "rgb("+rojo+ ", "+verde+", "+azul+")";
+
+        body.style.backgroundColor = color;
+    </script>
+    
+</body>
+</html>

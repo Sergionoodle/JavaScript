@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Triangulo de asteriscos 2.2</title>
+    <style>
+        #uno{
+            color: black;
+            font-family: monospace;
+        }
+        #dos{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var resultado = prompt("Dime un número de asteriscos y te hago una piramide:");
+
+        while(resultado < 0|| isNaN(Number(resultado))){
+            alert("Pon un numero positivo");
+            var resultado = prompt("Dime un número de asteriscos y te hago una piramide:");
+        }
+
+        for(var i = 0; i < resultado; i++){
+
+            for(var x= 0; x < resultado - i; x++){
+                document.write("<span id='dos'>*</span>");
+            }
+            for(var z = 0; z < i; z++){
+                document.write("<span id='uno'>*</span>");
+            }
+            document.write("<span id='uno'>*</span>");
+            for(var z = 0; z < i; z++){
+                document.write("<span id='uno'>*</span>");
+            }
+            for(var y = 0; y < resultado - i; y++){
+                document.write("<span id='dos'>*</span>");
+            }
+            
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

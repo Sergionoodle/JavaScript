@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        var respuesta;
+        var factorial = 1;
+
+        respuesta = prompt("indíca un número (entero positivo)");
+
+        if(respuesta < 0 || isNaN(Number(respuesta))){
+            alert("el número introducido no es valido")
+        }else{
+            for(let i = 1; i<= respuesta; i++){
+                factorial *= i;
+            }
+            alert(`El numero factorial de ${respuesta} es ${factorial} `);
+        }
+    </script>
+</body>
+</html>
