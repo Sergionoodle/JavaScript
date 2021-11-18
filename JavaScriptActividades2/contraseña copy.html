@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Declaración de variables
+        // Declaración de variables
+        var contrasenia, nombre;
+        var min = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "u", "v", "w", "x", "y", "z"];
+
+        var mayus = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "U", "V", "W", "X", "Y", "Z"];
+        var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+        var nombre = [];
+
+        nombre = prompt("Introduce tu nombre de usuario: ");
+
+        var comprovacion;
+
+        function es_mayus(nombre) {
+
+            for (let i = 0; i < nombre.length; i++) {
+
+                if (min.indexOf(nombre[i]) != -1) {
+                    return 0;
+                }
+            }
+            return 1;
+        }
+
+        var respuesta = es_mayus(nombre);
+
+        while (respuesta == 1) {
+            alert("No has introducido el nombre de usuario correctamente");
+
+            nombreNuevo = prompt("Introduce tu nombre de usuario: ");
+
+
+            if (es_mayus(nombreNuevo) != respuesta) {
+
+                respuesta = 0;
+            }
+
+        }
+
+        contrasenia = prompt("Introduce tu contraseña: ");
+
+        /*
+        for (let i = 0; i < nombre.length; i++) {
+
+            do{
+
+            
+            //recorre cada posicion del array y suma 1
+            if (min.indexOf(nombre[i]) != -1) {
+                // si cada letra del abecedario es diferente a 1 imprime incorrecto
+                alert(`Nombre incorrecto`);
+                nombre = prompt(`Introduce tu nombre:`);
+
+            } else if (i != num) {
+                alert(`No hay un número, tienes que volver a introducir la contraseña`);
+
+            }
+        }while(alert);
+    }*/
+    </script>
+
+</body>
+
+</html>

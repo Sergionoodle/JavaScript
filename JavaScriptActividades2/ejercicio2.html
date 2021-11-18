@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Cesar</title>
+</head>
+
+<body>
+    <script>
+        var abc = "abcdefghijklmnñopqrstuvwxyz";
+
+
+        do {
+
+
+            var respuest = prompt("Escribe una palabra");
+
+            var numero = prompt("Ahora el numero de cifrado");
+
+
+        } while (isNaN(Number(numero)));
+
+
+        for (var i = 0; i < respuest.length; i++) {
+
+            numero = respuest.charCodeAt(i) + Number(clave.charAt(cont));
+            document.write(String.fromCharCode(numero));
+
+
+            if (cont == numero.length) {
+                cont = 0;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Cesar</title>
+</head>
+
+<body>
+    <script>
+        var abc = "abcdefghijklmnñopqrstuvwxyz";
+
+
+        do {
+
+
+            var respuest = prompt("Escribe una palabra");
+
+            var numero = prompt("Ahora el numero de cifrado");
+
+
+        } while (isNaN(Number(numero)));
+
+
+        for (var i = 0; i < respuest.length; i++) {
+            //recorremos el texto con un bucle contador
+            numero = respuest.charCodeAt(i) + numero;
+            //aqui hacemos que el numero sea igual a 
+            //el nombre que con charcode (el numero que recorrera de mientras)
+            // mas el numero de cifrado
+
+            document.write(String.fromCharCode(numero));
+            //y aqui como bien sabes lo que hacemos es escribir en el 
+            //documento una palabra que cambie el numero(que es la variable de antes)
+            //por sus correspondientes codigos de unicode 
+
+        }
+    </script>
+</body>
+
+</html>
