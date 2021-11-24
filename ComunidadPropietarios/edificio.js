@@ -9,7 +9,8 @@ function Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal) {
 
     //metodo donde agregamos una planta al mapa
     this.agregarPlanta = function(numeroPlanta) {
-        this.mapaPropietariosEdificio.set(numeroPlanta, new Map());
+        let mapeoPlanta = new Map()
+        this.mapaPropietariosEdificio.set(numeroPlanta, mapeoPlanta);
     }
 
     //metodo donde agregamos un propietario con su numero planta y numero puerta en el mapa
@@ -47,27 +48,27 @@ function Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal) {
 
     //imprimimos a todos los propietarios
     this.imprimirTodosPropietarios = function() {
-        //le damos valor a entradas con el mapa
-        let entradas = this.mapaPropietariosEdificio.entries();
+        //le damos valor a entidades con el mapa
+        let entidades = this.mapaPropietariosEdificio.entries(); //entries para entidades
         //esto lo creamos porque si no da error
         let echo = "";
 
         //recorremos el mapa con el .size  y le damos el valor a let planta
         for (let i = 0; i < this.mapaPropietariosEdificio.size; i++) {
-            let planta = entradas.next().value[0];
+            let planta = entidades.next().value[0]; //para recorrer las entidades .next() y sacamos el valor 0
             //usando el let planta hacemos un echo para sarae las plantas
             echo += "\nPlanta:" + planta + "\n";
 
             //hacemos lo mismo pero sacando ahora la puerta
-            let entradas2 = this.mapaPropietariosEdificio.get(planta);
-            let key = entradas2.keys();
+            let entidades2 = this.mapaPropietariosEdificio.get(planta); //ahora sacamos las entidades de la planta
+            let key = entidades2.keys();
 
-            for (let j = 0; j < entradas2.size; j++) {
+            for (let j = 0; j < entidades2.size; j++) { //.size = .lenght
                 let puerta = key.next().value;
                 echo += "  Puerta:" + puerta + "\n";
 
                 //finalmente sacamos el propietario
-                entradas2.get(puerta).forEach(propietario => {
+                entidades2.get(puerta).forEach(propietario => {
                     echo += "      " + propietario + "\n";
                 });
             }
