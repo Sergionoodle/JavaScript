@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado polialfabetico</title>
+</head>
+
+<body>
+    <script>
+        // Declaración de variables
+        var texto, clave;
+        var cont = 0;
+        var cifra;
+
+        //Recogemos el texto que queremos cifrar
+        texto = prompt('Escribe el texto que quieres cifrar');
+
+        //Condicion de mientras no metamos un numero como clave se repita
+        do {
+            clave = prompt('Escribe la clave (un serie de números)');
+
+            //Esto por si no metemos un numero que avise
+            if (isNaN(Number(clave))) {
+                alert('No has escrito un número');
+            }
+        } while (isNaN(Number(clave)));
+
+        //Hacemos un for que recorra la largaria del texto
+        for (i = 0; i < texto.length; i++) {
+
+            //cifra pasa a ser el texto charcodeat i mas el numero
+            cifra = texto.charCodeAt(i) + Number(clave.charAt(cont));
+
+            //CharCodeat = charCodeAt() returns the Unicode of the character at a specified position in a string.
+            
+            document.write(String.fromCharCode(cifra));
+            cont++;
+            if (cont == clave.length) {
+                cont = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

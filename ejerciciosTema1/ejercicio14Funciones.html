@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares impares</title>
+</head>
+<body>
+    <script>
+        const par = function (x){
+            return (x%2 == 0) ? "par" : "impar" //si no da 0 es la segunda opcion y si no es la primera
+        }
+
+        //Funcion flexa donde si la x se divide entre dos da par y si no es impar
+        const par2 = (x) => (x%2 == 0) ? "par" : "impar"
+
+        //tests
+        let test = par;
+        document.write(test(8))
+
+        let test2 = par2;
+        document.write("<br>"+test2(6))
+    </script>
+</body>
+</html>

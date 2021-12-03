@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden</title>
+</head>
+<body>
+    <script>
+
+        //Declaramos las variables
+        let txt
+        let txt2 = ""
+
+        //se repite el prompt mientras este sea == " "
+        do{
+            txt = prompt("introduce una palabra")
+        }while(txt == "")
+
+        //Creamos la funcion de ordenar donde nos entrara un texto 
+        function ordenar(texto){
+            texto = texto.split("")//que corte cuando hay un vacio
+            texto = texto.sort()//ordenamos alfabeticamente
+            texto = texto.reverse()//lo ponemos en el orden contrario
+
+            //recorremos lo largo del texto
+            for(let i = 0; i < texto.length; i++){
+                if(!txt2.includes(texto[i]))//si el txt no incluye texto i
+                txt2 += (texto[i])//hacemos que lo meta
+            }
+
+            return txt2//devuelve el texto ordenado 
+        }
+
+        document.write(ordenar(txt))//Llamamos a la funcion y le metemos un parametro
+    </script>
+</body>
+</html>

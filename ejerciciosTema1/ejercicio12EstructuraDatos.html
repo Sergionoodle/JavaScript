@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar contraseña</title>
+</head>
+<body>
+    <script>
+        //Declaramos las variables
+        let nombre, contra;
+        let seguir = true;
+        let nombreOK = true;
+        let contraOK;
+        let hayMinusculas = false;
+        let hayMayusculas = false;
+        let hayNumero = false;
+        let hayOtro = false;
+        let caracter;
+        const minusculas = "aáàbcçdeéèfghiíìjklmnñoóòpqrstuúùüvwxyz";
+        const numeros = '0123456789';
+
+        do{
+            nombre = prompt("Escribe tu nombre de usuario")
+            if(nombre == null) seguir = false; //Si el nombre es null, la variable seguir pasa a false
+            if(seguir){
+                let cont = 0;
+                let numMayusculas = 0;
+                let numNumeros = 0;
+                let numSimbolos = 0;
+                nombreOK = true;
+                while(cont<nombre.length){//Mientras el contador sea menos que lo largo del nombre
+                    if(minusculas.indexOf(nombre.charAt(cont))== -1){//cuando encuentre minusculas el contador ++
+
+                        //Mientras encuentre mayusculas el contador de mayus subira
+                        if(minusculas.toUpperCase().indexOf(nombre.charAt(cont)) != -1){
+                            //Se suma a las mayusculas
+                            numMayusculas++;
+
+                            //mientras encuentre numeros el contador de numeros subira
+                        }else if(numeros.indexOf(nombre.charAt(cont)) != -1){
+                            numNumeros++;
+
+                            //mientras encuentre simbolos el contador de simbolos subira
+                        }else{
+                            numSimbolos++;
+                        }
+                    }
+                    cont++;
+                }
+
+                //Si no da un minimo de tener una mayuscula, un numero y un simbolo nombreOK da false y se repite lo anterior
+                if(numMayusculas > 0 || numNumeros == 0 || numSimbolos > 0){
+                    nombreOK == false;
+                    alert("No se cumplen los requisitos del usuario")
+                }
+            }
+        }while(seguir && !nombreOK)//haz mientras le de a seguir y el nombre no sea ok
+        
+        //Ahora vamos a la contraseña
+        if(seguir){//si sequir es true proseguimos
+            do{
+                hayMinusculas = false;
+                hayMayusculas = false;
+                hayNumero = false;
+                hayOtro = false;
+
+                contra = prompt("Escribe una contraseña")
+
+                //Si la contraseña es null seguir pasara a ser falso y tendremos que repetir
+                if(contra == null) seguir = false;
+
+                if(seguir){//Si seguir es true continuamos
+                    contraOK = true;
+                    let i = 0;
+
+                    while(contraOK && i < contra.length){
+                        caracter = contra.charAt(i)
+
+                        if(minusculas.indexOf(caracter) != -1){
+                            hayMinusculas = true;
+                        }else if(minusculas.toUpperCase().indexOf(caracter) != -1){
+                            hayMayusculas = true;
+                        }else if (numeros.indexOf(caracter) != -1){
+                            hayNumero = true;
+                        }else{
+                            hayOtro = true;
+                        }
+                        i++;
+                    }
+                    contraOK = (hayMinusculas && hayMayusculas && hayNumero && hayOtro)
+
+                    if(!contraOK){
+                        alert("No cumple los requisitos")
+                    }
+                }
+
+            }while(seguir && !contraOK)
+        }
+
+        if(seguir){
+            document.write("<p>Se almacenó correctamente</p>");
+        }else{
+            document.write("ERROR")
+        }
+    </script>
+</body>
+</html>

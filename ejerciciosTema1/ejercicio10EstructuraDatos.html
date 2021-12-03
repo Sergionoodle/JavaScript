@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria</title>
+</head>
+
+<body>
+    <script>
+        //Primero declaramos variables a usar
+        const MAXCOMBINACIONES = 50; //Como maximo tendremos 50 combinaciones
+        const RANGOSOLUCION = 6; //Tendremos como soluciones 6 posibles
+        const combinaciones = new Set(); //CREAMOS UN SET QUE SERA UNA LISTA
+        //SON CONSTANTES ENTONCES NO VARIAN
+
+        //Recorremos hasta su maximo de combinaciones
+        for (i = 1; i <= MAXCOMBINACIONES; i++) {
+            document.write("<h1>Combinaciones posibles son " + MAXCOMBINACIONES + "</h1>")
+
+            do {
+                combinaciones.add(parseInt(Math.random() * 49) + 1)//Numeros del 1 al 49 dentro de la lista
+
+            } while (combinaciones.size < RANGOSOLUCION)//Mientras que la largaria sea menor que el rango de soluciones
+
+            document.write("<p>");
+
+                //Hacemos como un foreach
+            for (numero of combinaciones) {
+                document.write(numero)
+            }
+            document.write("</p>")
+            combinaciones.clear();
+        }
+
+
+    </script>
+</body>
+
+</html>

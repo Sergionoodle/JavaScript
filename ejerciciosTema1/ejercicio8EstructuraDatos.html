@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Cesar</title>
+</head>
+
+<body>
+    <script>
+        //Declaramos las variables a usar
+        var texto, clave;
+        var cifra;
+        var textoCifrado = '';
+
+        //preguntamos por la palabra a cifrar
+        texto = prompt("Dime una palabra y te la cifro")
+
+        //Ahora hacemos la condicion para que escriba un numero entero
+        do {
+            clave = prompt("Pon un numero entero como clave")
+            if (NaN(Number(clave))) {//Si No es un Numero clave
+                alert("No has escrito un numero")
+            }
+        } while (isNaN(Number(clave)))
+
+        //hacemos que la clave sea un numero entero si o si 
+        clave = parseInt(clave)
+
+        //Cifrado
+        for (i = 0; i < texto.length; i++) {
+            cifra = texto.charCodeAt(i) + clave;
+            document.write(String.fromCharCode(cifra));
+        }
+    </script>
+</body>
+
+</html>

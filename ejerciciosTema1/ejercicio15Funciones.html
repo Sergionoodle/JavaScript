@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printar tabla</title>
+  
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //Creamos la funcion donde filas = 10, columnas = 4 y el color = negro
+        function dibujaTabla(nFilas = 10, nCols = 4, color = 'black') {
+
+            //empezamos con la creacion
+            document.write(`<table style='border-collapse:collapse:collapse;` +
+                `border:3px solid ${color};width:100%;'`);
+
+                //recorremos hasta llegar al numero de filas
+            for (let i = 1; i <= nFilas; i++) {
+                document.write('<tr>');//printamos tr
+
+                    //recorremos hasta llegar al numero de columnas
+                for (let j = 1; j <= nCols; j++) {
+                    //printamos td y lo cerramos con su bacio (&nbsp)
+                    document.write(`<td style='border:1px solid ${color}'>&nbsp;</td>`);
+                }
+                document.write('</td>');//Printamos el final de td
+            }
+            document.write('</table>');//Printamos el final de table
+        }
+    </script>
+      <script>
+        dibujaTabla();//LLamamos a dibujar tabla (dibujara como la tenemos predefinida-)
+        dibujaTabla(20, 10);//Llamamos a dibujar tabla y printara esta vez con 20 filas y 4 columnas (color predefinido)
+        for (let i = 1; i <= 10; i++) {//recorremos 
+            dibujaTabla(5, 4, 'green');//printamos ahora la tabla con 5 filas 4 columnas y un color 
+        }
+    </script>
+
+</body>
+
+</html>

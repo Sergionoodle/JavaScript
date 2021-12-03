@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Creamos un objeto
+        function Punto(coordX, coordY) {
+            //nos pasaran coordenada x e y
+            this.x = coordX;
+            this.y = coordY
+
+            //Creamos una funcion donde metemos la coordenada x e y y la cambia
+            this.cambiar = function (coordX, coordY) {
+                this.x = coordX;
+                this.y = coordY;
+            }
+
+            //Ahora calculamos la distancia en una funcion
+            this.obtenerDistancia = function (punto2) {
+                //Math.sqrt = devuelve la raiz cuadrada del numero pasado por argumento
+                //Math.pow = elevado (numero) a 2
+                //Le hacemos el calculo a punto2 (nuevo objeto punto) y a this. que es el primer objeto
+                let resultado = Math.sqrt(Math.pow((punto2.x - this.x), 2) + Math.pow((punto2.y - this.y), 2))
+                return resultado;
+            }
+
+            this.suma = function (punto2) {
+                let x = this.x + punto2.x;
+                let y = this.y + punto2.y
+
+                return new Punto(x, y)
+            }
+
+            //hacemos un toString para sacar todo
+            this.toString = function () {
+                return ("Punto X: " + this.x + " Punto y: " + this.y)
+            }
+
+            //Hacemos una copia del objeto punto
+            this.copia = function () {
+                return new Punto(this.x, this.y)
+            }
+        }
+
+        var p = new Punto(1, 2);
+        console.log("p: " + p.toString())
+        var q = new Punto(6, -3)
+        console.log("q: " + q.toString())
+
+        p.cambiar(-5, 2)
+
+        var r = p.copia()
+        console.log("r " + r.toString())
+        r.x = 9;
+
+        //Sacas el tostring de p 
+        console.log("p: " + p.toString()); // Salida: (-5,2)
+
+        //Sacas el tostring de r
+        console.log("r: " + r.toString()); // Salida: (9,2)
+
+        //creamos s y p se suma con r 
+        var s = p.suma(r);
+        console.log("s: " + s.toString()); // Salida: (4,4)
+
+        console.log("Distancia entre p y q: " + p.obetenerDistancia(q)); // Salida: 12.08
+    </script>
+</body>
+
+</html>

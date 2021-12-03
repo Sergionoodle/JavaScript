@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <script>
+
+        //Creamos una funcion donde introduzcamos un numero 
+        function fibo(num){
+            //el resultado sera de 0 a 1
+            let resultados = [0,1]
+            let tot
+
+            //recorremos el numero introducido 
+            for(let i = 0; i + 2 < num; i++){
+
+                //Si el resultado i,1 no es null
+                if(resultados[i+1] != null){
+                    tot = resultados[i] + resultados[i+1]//creamos tot que es igual a resultado i  y resultado i mas 1
+                }
+                resultados[i+2] = tot//metemso tot en resultado i mas 2 
+            }
+            return resultados//devolvemos 
+        }
+
+        let num 
+
+        do{//haz mientras no sea un numero 
+            num = prompt("introduce un numero")
+        }while(!Number(num))
+
+        //llamamos a la funcion introduciendole el numero 
+        document.write(fibo(num))
+    </script>
+</body>
+</html>

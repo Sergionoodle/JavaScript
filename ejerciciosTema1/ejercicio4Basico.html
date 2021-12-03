@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el numero</title>
+</head>
+
+<body>
+    <script>
+        //Declaramos las variables
+        var numero;
+        var respuesta;
+        var cont;
+        var salir = false;
+        var repetir = false;
+
+        do {
+            //Obtención de valores
+            cont = 0;
+            numero = parseInt(Math.random() * 101) + 1;
+            do {
+                do {
+                    respuesta = prompt("Que numero estoy pensando")
+
+                    //Si la respuesta esta vacia
+                    if (respuesta == null) {
+                        salir = true;//salimos
+                    } else if (!Number(respuesta) || respuesta < 0 || respuesta > 100) {
+                        alert("Numero no valido")
+                        repetir = true;//Se repite otra vez si la respuesta no es un numero o es menor a 0 o mayor a 100
+
+                    }
+                } while (!salir && repetir)//mientras no sea salir = false y repetir no sea flase
+                cont++;
+
+                //Si salir pasa a true
+                if (!salir) {
+                    if (numero > respuesta) {
+                        alert("Mi numero es mayor")
+                    } else if (numero < respuesta) {
+                        alert("te pasas")
+                    }
+                }
+            } while (!salir && respuesta != numero);
+
+            if (!salir) {
+                alert("Acertaste en " + cont)
+            }
+            //Si salir es true y se confirma que quiere jugar
+        } while (!salir && confirm("Deseas volver a jugar?"));
+
+        if (salir) {
+            document.write("<h1>Se canceló la partida</h1>");
+        } else {
+            document.write("<h1>Gracias por jugar</h1>");
+        }
+    </script>
+
+</body>
+
+</html>

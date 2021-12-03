@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero Factorial</title>
+</head>
+<body>
+    <script>
+        //Sacamos un numero factorial 
+        var num = 1;
+
+        //repite esto mientras no metan un numero o sea menor que 0 o igual a null
+        do{
+            var numero = prompt("Escribe un numero positivo")
+        }while(isNaN(Number(numero))||numero < 0||numero == "")
+
+        //hacemos un bucle para llegar al numero y lo multiplicamos por la i
+        for(let i = 1; i <= numero; i++){
+            num *=i;
+        }
+        alert("el factorial de numero "+numero+" es"+" "+num)
+    </script>
+</body>
+</html>

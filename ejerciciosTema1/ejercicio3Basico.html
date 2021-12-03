@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo salario</title>
+</head>
+
+<body>
+    <script>
+        /* Declaración de constantes */
+        const incremento3 = 1.03;
+        const incremento10 = 1.10;
+        const incremento15 = 1.15;
+
+        /* Declaración de variables */
+        var nombre;
+        var apellidos;
+        var salario;
+        var edad;
+
+        /* Recogida de datos del usuario */
+        nombre = prompt("Escribe tu nombre:");
+        apellidos = prompt("Escribe tus apellidos");
+        salario = prompt("Escribe tu salario: ");
+        edad = prompt("Escribe tu edad: ");
+
+        /* Valoración y calculo del nuevo salario */
+        //si el salario es menor a 1000
+        if (salario < 1000) {
+            //tiene una edad menor a 30
+            if (edad < 30) {
+                salario = 1100;//el salario sera 1100
+
+                //si la edad es menor a 45
+            } else if (edad < 45) {
+                salario *= incremento3;//salario multiplica este por incremento 3%
+            } else {
+                salario *= incremento15;//Si no tiene menos de 45 se incrementa por 15%
+            }
+
+            //si el salario es menor o igual a 2000
+        } else if (salario <= 2000) {
+            if (edad <= 45) {//la edad si es menor o igual a 45
+                salario *= incremento10;//El salario se incrementa por 10%
+            } else {
+                salario *= incremento3;//si no es asi el salario se incrementa por 3%
+            }
+        }
+        document.write(nombre + " " + apellidos + " " + edad + " años " + salario)
+
+        /*var nombre = prompt("Cual es tu nombre: ");
+var apellidos = prompt("Cuales son tus apellidos: ");
+var edad = parseInt(prompt("Cual es tu edad: "));
+var salario = parseInt(prompt("Cual es tu salario: "));
+
+if (salario > 1000 && salario < 2000) {
+    if (edad > 45) {
+        salario = ((salario*3)/100)+salario;
+    } else if (edad <= 45) {
+        salario = ((salario*10)/100)+salario;
+    }
+} else if (salario < 1000) {
+    if (edad < 30) {
+        salario = 1100;
+    } else if (edad >= 30 && edad < 45) {
+        salario = ((salario*3)/100)+salario;
+    } else if (edad > 45) {
+        salario = ((salario*15)/100)+salario;
+    }
+}
+
+document.write("Nombre: " + nombre + " " + apellidos + "<br>Edad: " + edad + "<br>Tu salario es:  " + salario);*/
+    </script>
+</body>
+
+</html>

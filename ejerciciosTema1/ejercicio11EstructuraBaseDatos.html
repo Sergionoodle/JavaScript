@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frecuencias de numeros</title>
+</head>
+
+<body>
+    <script>
+        //Declaramos las variables
+        var contador, numero;
+        let mapa = new Map();
+        const MAXFRECUENCIA = 10;
+        const MAXREPETICIONES = 1000;
+
+        for (i = 1; i <= MAXFRECUENCIA; i++) {
+            mapa.set(i, 0)//Metemos el numero de frecuencias en el mapa
+            //en este caso es la clave i y el valor 0
+        }
+
+        //Recorremos las maximas repeticiones
+        for (i = 1; i <= MAXREPETICIONES; i++) {
+            numero = parseInt(Math.random() * 10) + 1;//Hacemos el numero random
+            mapa.set(numero, (mapa.get(numero) + 1))//Metemos dentro del mapa
+        }
+
+        document.write("<h1>FRECUENCIAS")
+        document.write("<ul>")
+        for (i = 1; i < MAXFRECUENCIA; i++) {
+            document.write("<li><strong>Numero " + i + "</strong>" + mapa.get(i) + "</li>")
+        }
+        document.write("</ul>")
+    </script>
+</body>
+
+</html>

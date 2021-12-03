@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar url</title>
+</head>
+<body>
+    <script>
+        var url = prompt("Indica la URL que quieres comprobar")
+
+        //El primer patron tiene que contener (ftp, http o https) con barras / de 0 a 3
+        patronProtocolo = `(ftp|http|https):\\/{0,3}`
+                                            //Separar
+        //El nombre de usuario puede contener... separado de : o . con ... contraseña
+        patronUsuarioPassword = `(([A-Za-z0-9\\-_\\.]*:.+|[A-Za-z0-9\\-_\\.]*)@+)*`; 
+    
+        //La maquina lo mismo que antes puede tener esto .. separado * mas ... mas ...
+        patronNombreMaquina = `([A-Za-z0-9\\-_]*\.[A-Za-z0-9\\-_]+(\.[A-Za-z0-9\\-_]+)*)`;
+    
+        //La puerta empieza por : y puede ir de 0 al 9 de una a 5 veces
+        patronPuerto = `(:[0-9]{1,5})?`
+
+        //La ruta empieza por / puede tener letras de x a x mas / y una ?
+        patronRuta = `(\\/([A-Za-z\\.]+\\/?)*)?`
+
+        //El patron busqueda empieza por ?. mas lo que busques
+        patronBusqueda = `(\\?.+)?`
+
+        //Objeto para coincidir texto con un patron
+        var patronUrl = new RegExp(patronProtocolo+patronUsuarioPassword+patronNombreMaquina+patronPuerto+patronRuta+patronBusqueda)
+
+        document.write(patronUrl.test(url))
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear un mapa</title>
+</head>
+<body>
+<script>
+
+    //creamos la funcion map donde meteremos una array
+    function map(array){
+
+        //Creamos la constante de mapa
+        const mapa = new Map()
+        let numero
+
+        //Foreach 
+        array.forEach(element => {
+            if(mapa.has(element)){//Metemos un elemento si el mapa no tiene
+                num = mapa.get(element)+1//Aqui le vamos añadiendo
+                mapa.set(element,num)//ahora lo seteamos clave valor
+            }else{//si no pues metemos solo la clave y el valor a 1
+                mapa.set(element, 1)
+            }
+        });
+        return mapa;//devuleve el mapa
+    }
+    let cont = 0;
+    let array = [];
+    let size
+    let resultados 
+
+    do{//haz mientras el texto no sea null
+        txt = prompt("Introduce una palabra")
+        if(txt != "" && txt != null){//si no es igual a null o no tiene un vacio
+            array[cont] = txt;//array contador y le metemos el texto
+            cont++;
+        }
+    }while(txt != null)
+
+    size = map(array).size;//miramos cuanto tiene
+    resultados=map(array).entries();//miramos entidades
+
+    for(let i = 0; i < size; i++){//recorremos lo que es la grandaria del map
+        document.write("<p>"+resultados.next().value+"</p>")//imprimimos
+    }
+</script>   
+</body>
+</html>
